@@ -680,14 +680,58 @@ body {
 .whatsapp-link:hover {
     color: #128C7E !important;
 }
-/* قسم التخصص - الأمن السيبراني */
+/* قسم التخصص - الأمن السيبراني *//* قسم الأمن السيبراني - الحل الجذري *//* حل بديل: استخدام Flexbox */
 .specialization-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-bottom: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* توسيط البطاقات */
+    gap: 1.5rem;
+    width: 100%;
 }
 
+.spec-card {
+    flex: 1 1 300px; /* تنمو وتتقلص، مع عرض أساسي 300px */
+    max-width: 350px;
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border-top: 4px solid var(--primary-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.spec-card {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border-top: 4px solid var(--primary-color);
+    height: 350px; /* ارتفاع ثابت */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* للشاشات المتوسطة (تابلت) */
+@media (max-width: 992px) {
+    .specialization-grid {
+        grid-template-columns: repeat(2, 1fr); /* عمودين */
+    }
+}
+
+/* للجوال */
+@media (max-width: 768px) {
+    .specialization-grid {
+        grid-template-columns: 1fr; /* عمود واحد */
+        max-width: 400px;
+    }
+    
+    .spec-card {
+        height: auto;
+        min-height: 280px;
+    }
+}
 .spec-card {
     background: var(--white);
     padding: 2rem;
@@ -947,4 +991,134 @@ body {
     .spec-card {
         min-height: 280px;
     }
+}
+/* تأكد أن جميع البطاقات متساوية الارتفاع */
+.equal-height-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.equal-height-container > * {
+    flex: 1 1 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* تجعل المحتوى يملأ المساحة المتبقية */
+.card-content-fill {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* تطبيق على بطاقات المشاريع */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    align-items: stretch; /* مهم جداً */
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* يأخذ الارتفاع الكامل */
+}
+
+.project-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* تطبيق على بطاقات الأمن السيبراني */
+.specialization-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    align-items: stretch; /* مهم جداً */
+}
+
+.spec-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+/* 1. تحسين حاوية البطاقات الأساسية لضمان المساواة */
+.projects-grid,
+.specialization-grid {
+    display: grid;
+    /* سينشئ هذا صفوفًا متساوية الطول تلقائيًا */
+    grid-template-rows: 1fr;
+    gap: 2rem;
+    align-items: stretch; /* هذا السطر بالغ الأهمية */
+}
+
+/* 2. فرض ارتفاع ثابت ومنظم لبطاقات المشاريع */
+.project-card {
+    display: flex;
+    flex-direction: column;
+    height: 480px; /* ارتفاع ثابت للجميع */
+    min-height: 480px; /* منع الانكماش */
+    max-height: 480px; /* منع التمدد */
+    overflow: hidden; /* إخفاء أي محتوى يتجاوز الارتفاع المحدد */
+}
+
+/* 3. تنظيم العناصر الداخلية للبطاقة */
+.project-content {
+    flex: 1; /* يأخذ كل المساحة المتاحة لدفع الروابط للأسفل */
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+}
+
+/* 4. معالجة النصوص الطويلة: قصها وإضافة علامة "..." */
+.project-content > p {
+    flex-grow: 1; /* يأخذ مساحة النص */
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* عدد الأسطر المسموح به قبل القص */
+    -webkit-box-orient: vertical;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+/* 5. معالجة القوائم في بطاقات الأمن السيبراني */
+.spec-card {
+    height: 380px; /* ارتفاع مختلف ولكن ثابت لهذا النوع من البطاقات */
+    min-height: 380px;
+    max-height: 380px;
+    display: flex;
+    flex-direction: column;
+}
+
+.spec-list {
+    flex-grow: 1; /* السماح للقائمة بملء المساحة */
+    overflow-y: auto; /* إضافة شريط تمرير إذا كانت القائمة طويلة جدًا */
+    margin-top: 1rem;
+}
+
+/* 6. التأكد من أن الأزرار تبقى في أسفل البطاقة */
+.project-links,
+.spec-list + p { /* إذا كان هناك نص بعد القائمة */
+    margin-top: auto; /* السحر الذي يدفع العنصر إلى الأسفل */
+    padding-top: 1rem;
+}
+/* حل سريع للتأكد من أن البطاقات تظهر بجانب بعضها */
+#cybersecurity .container {
+    width: 100%;
+    padding: 0 1rem;
+}
+
+.specialization-grid {
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.spec-card {
+    width: 300px !important;
+    margin: 0 !important;
 }

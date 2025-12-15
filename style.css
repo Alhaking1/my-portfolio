@@ -295,6 +295,68 @@ body {
     gap: 0.5rem;
     flex-wrap: wrap;
     margin-bottom: 1rem;
+    min-height: 30px; /* ارتفاع ثابت */
+}
+
+.tech-tag {
+    background-color: #e0f2fe;
+    color: var(--primary-color);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    height: 28px; /* ارتفاع ثابت */
+    display: flex;
+    align-items: center;
+    white-space: nowrap; /* لمنع التفاف النص */
+}
+.project-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    min-height: 40px; /* ارتفاع ثابت */
+    align-items: center;
+}
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    align-items: stretch; /* يجعل العناصر متساوية الارتفاع */
+}
+
+.project-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* يأخذ الارتفاع الكامل */
+}
+
+.project-content {
+    padding: 1.5rem;
+    flex-grow: 1; /* يجعل المحتوى يملأ المساحة */
+    display: flex;
+    flex-direction: column;
+}
+
+.project-content p {
+    color: var(--gray);
+    margin-bottom: 1rem;
+    flex-grow: 1; /* يجعل الفقرة تأخذ المساحة المتبقية */
+}
+.project-link.soon {
+    color: var(--gray);
+    background-color: #f1f5f9;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.project-link.soon:hover {
+    background-color: #e2e8f0;
+    text-decoration: none;
 }
 
 .tech-tag {

@@ -515,3 +515,22 @@ body {
         gap: 1rem;
     }
 }
+/* بطاقة التعليم */
+.education-card {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-top: 2rem;
+    border-right: 4px solid var(--primary-color);
+}
+
+.education-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.education-card p {
+    margin-bottom: 0.5rem;
+}

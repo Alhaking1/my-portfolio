@@ -928,3 +928,23 @@ body {
 .btn-success:hover {
     background: #128C7E;
 }
+.specialization-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    align-items: stretch; /* يجعل العناصر متساوية الارتفاع */
+}
+
+/* للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .specialization-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto 3rem;
+    }
+    
+    .spec-card {
+        min-height: 280px;
+    }
+}

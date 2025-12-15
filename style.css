@@ -596,3 +596,25 @@ body {
     color: var(--gray);
     margin-bottom: 0.3rem;
 }
+/* تحسين روابط التواصل */
+.contact-item a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: all 0.3s;
+    border-bottom: 1px dashed transparent;
+}
+
+.contact-item a:hover {
+    color: var(--secondary-color);
+    border-bottom-color: var(--secondary-color);
+}
+
+/* خاصية واتساب */
+.whatsapp-link {
+    color: #25D366 !important;
+    font-weight: 500;
+}
+
+.whatsapp-link:hover {
+    color: #128C7E !important;
+}

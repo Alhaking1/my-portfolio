@@ -341,3 +341,23 @@ function checkOnlineStatus() {
 // مثال: يمكن تفعيل هذه لاحقاً
 // console.log("موقع مجيب العباب يعمل بنجاح!");
 // console.log("تاريخ اليوم:", updateLiveDateTime());
+// إضافة تأثيرات للأقسام السيبرانية
+function setupCybersecurityEffects() {
+    const specCards = document.querySelectorAll('.spec-card');
+    
+    specCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.boxShadow = '0 10px 25px rgba(37, 99, 235, 0.2)';
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.boxShadow = 'var(--shadow)';
+        });
+    });
+}
+
+// تفعيل عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', function() {
+    // ... الكود السابق ...
+    setupCybersecurityEffects();
+});
